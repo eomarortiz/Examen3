@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="jquery-3.1.1.min.js"></script>
+    </head>
+
+    <body>
+        <div id="respuesta">
+            hola
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+            
+            $.ajax({
+                url: 'https://forms.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=408&deploy=1&compid=3803303&h=768e554d1169907e8957',
+                /*type: 'get',
+                jsonp: "callback",
+                dataType: "jsonp",
+                crossDomain: true,*/
+                contentType: "application/json"
+            }).done(function(response){
+                $("#respuesta").html("Respuesta "+response);
+
+            }).fail(function(error){
+                $("#respuesta").html("Error "+error);
+            });
+
+        });
+        </script>
+
+
+
+    </body>
+</html>
