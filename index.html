@@ -15,20 +15,30 @@
                 
             
             $.ajax({
-                url: 'https://forms.na1.netsuite.com/app/site/hosting/scriptlet.nl?script=408&deploy=1&compid=3803303&h=768e554d1169907e8957',
+                url: 'https://forms.na1.netsuite.com/app/site/hosting/scriptlet.nl',
                 type: 'post',
-                jsonp: "callback",
-                dataType: "jsonp",
+                data: {
+                    "script":408,
+                    "deploy":1,
+                    "compid":3803303,
+                    "h":"768e554d1169907e8957"
+                },
+                dataType: "json",
                 crossDomain: true,
-                contentType: "application/json"
-            }).done(function(response){
-                $("#respuesta").html("Respuesta "+response);
+                success:function(data) {
+                     console.log(data); 
+                  },
 
-            }).fail(function(error){
-                $("#respuesta").html("Error "+error);
+                error: function(result) {
+                    console.log( result);
+                }
             });
 
         });
+
+
+
+
         </script>
 
 
